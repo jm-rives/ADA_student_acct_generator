@@ -38,8 +38,9 @@ student_info = " "
 # mega loop begins
 
 5.times do
-# receives user input of student names
-	# ~ add error checking
+	#----------
+	# receives user input of student names
+	# TODO(jrives): add error checking
 	puts "Please enter the students first and last name: " # works
 	name = gets.chomp # works
 	# normalizes data
@@ -48,12 +49,14 @@ student_info = " "
 	student_names.push(name)
 	# puts student_names # print debuggin' werks
 
-# student id number randomly generated
+	#----------
+	# student id number randomly generated
 	student_id = rand(111111..999999) 
 	number_id.push(student_id)
 	# puts number_id # print debuggin' werks
 
-# Student name and 1st initial
+	#----------
+	# Student name and 1st initial
 	# splits the student names out of the array
 	break_array = student_names.shift
 
@@ -61,31 +64,41 @@ student_info = " "
 	first_initial = break_array[0] # this line is triggering an error message, error triggered by poorly written test ilne 9 #
 	# puts first_initial # print debuggin' werks
 
-# splits last names off 
+	#----------
+	# splits last names off 
 	all_last_name = break_array.split
 	# puts all_last_name # print debuggin' werks
 
-# pushes off last name with ruby method
+	#----------
+	# pushes off last name with ruby method
 	last_name = all_last_name.last
 
-# slices id number out of array
+	#----------
+	# slices id number out of array
+    # TODO(jrives): Don't store student_id in the number_id array and then shift it back out again,
+    # just use it here.
 	break_id = number_id.shift # werks as desired # changed from student_id
 
-# type cast fixnum to string
+	#----------
+	# type cast fixnum to string
 	break_id = break_id.to_s
 
-# slices desired segment of id number (now string type)
+	#----------
+	# slices desired segment of id number (now string type)
 	email_id = break_id[3..6]
 	# puts email_id # print debuggin' werks
 	
-# generates student's email address
+	#----------
+	# generates student's email address
 	email = "#{first_initial}#{last_name}#{email_id}#{email_suffix}" # puts email # print debuggin' werks
 	
-# places student emails into array
+	#----------	
+	# places student emails into array
 	student_email.push(email)
 	# puts student_email # print debuggin' werks
 
-# populates student_data array
+	#----------
+	# populates student_data array
 	student_info = "Student Name: #{name} Student Id:  #{student_id} Student Email: #{email}"
 	student_data.push(student_info)
 end
