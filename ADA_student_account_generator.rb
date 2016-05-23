@@ -4,7 +4,7 @@
 # a randomly generated student ID number
 # builds a student email address using the above data
 # and then prints the information out for each student in parallel
-# 
+#
 # inspired by Ada Developers Academy Jump start program found here https://github.com/Ada-Developers-Academy/jump-start
 #
 ##
@@ -40,7 +40,7 @@ student_info = " "
 5.times do
 	#----------
 	# receives user input of student names
-	# TODO(jrives): add error checking
+	#TODO(jrives): add error checking
 	puts "Please enter the students first and last name: " # works
 	name = gets.chomp # works
 	# normalizes data
@@ -51,7 +51,7 @@ student_info = " "
 
 	#----------
 	# student id number randomly generated
-	student_id = rand(111111..999999) 
+	student_id = rand(111111..999999)
 	number_id.push(student_id)
 	# puts number_id # print debuggin' werks
 
@@ -65,7 +65,7 @@ student_info = " "
 	# puts first_initial # print debuggin' werks
 
 	#----------
-	# splits last names off 
+	# splits last names off
 	all_last_name = break_array.split
 	# puts all_last_name # print debuggin' werks
 
@@ -75,7 +75,7 @@ student_info = " "
 
 	#----------
 	# slices id number out of array
-    # TODO(jrives): Don't store student_id in the number_id array and then shift it back out again,
+    #TODO(jrives): Don't store student_id in the number_id array and then shift it back out again,
     # just use it here.
 	break_id = number_id.shift # werks as desired # changed from student_id
 
@@ -87,23 +87,21 @@ student_info = " "
 	# slices desired segment of id number (now string type)
 	email_id = break_id[3..6]
 	# puts email_id # print debuggin' werks
-	
+
 	#----------
 	# generates student's email address
 	email = "#{first_initial}#{last_name}#{email_id}#{email_suffix}" # puts email # print debuggin' werks
-	
-	#----------	
+
+	#----------
 	# places student emails into array
 	student_email.push(email)
 	# puts student_email # print debuggin' werks
 
 	#----------
 	# populates student_data array
-	student_info = "Student Name: #{name} Student Id:  #{student_id} Student Email: #{email}"
+	student_info = "Student Name: #{name} Student Id: #{student_id} Student Email: #{email}"
 	student_data.push(student_info)
 end
 
-# prints student data to standard out in parallel 
+# prints student data to standard out in parallel
 puts student_data
-
-
